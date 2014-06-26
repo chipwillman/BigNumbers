@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.Test", "Factoring.Test\Factoring.Test.csproj", "{D1B8B045-112E-4D9C-AC67-CC73F80787CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring", "Factoring\Factoring.csproj", "{DD1A1BA2-D110-4706-932E-D81479BEA3E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{914E5562-EF4F-49F9-85A6-4CF25F528286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoExplorer.Test", "CryptoExplorer.Test\CryptoExplorer.Test.csproj", "{60BE4132-407C-43AA-87A4-EBB7755C0F4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B8B045-112E-4D9C-AC67-CC73F80787CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B8B045-112E-4D9C-AC67-CC73F80787CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B8B045-112E-4D9C-AC67-CC73F80787CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B8B045-112E-4D9C-AC67-CC73F80787CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD1A1BA2-D110-4706-932E-D81479BEA3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1A1BA2-D110-4706-932E-D81479BEA3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1A1BA2-D110-4706-932E-D81479BEA3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1A1BA2-D110-4706-932E-D81479BEA3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{914E5562-EF4F-49F9-85A6-4CF25F528286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{914E5562-EF4F-49F9-85A6-4CF25F528286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{914E5562-EF4F-49F9-85A6-4CF25F528286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{914E5562-EF4F-49F9-85A6-4CF25F528286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BE4132-407C-43AA-87A4-EBB7755C0F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BE4132-407C-43AA-87A4-EBB7755C0F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BE4132-407C-43AA-87A4-EBB7755C0F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BE4132-407C-43AA-87A4-EBB7755C0F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

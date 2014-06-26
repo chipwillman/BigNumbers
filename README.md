@@ -1,4 +1,6 @@
 BigNumbers
 ==========
 
-Explorations (main unit tests) into numbers
+Explorations into numbers and how to factor them
+
+

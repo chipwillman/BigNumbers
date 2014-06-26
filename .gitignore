@@ -1,23 +1,19 @@
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+/_ReSharper.Services
+bin/
+obj/
+*.suo
+*.user
+build/
+tmp/
+TestResults/
+deployment-pipeline/*.log
+StyleCop.Cache
 
-# Libraries
-*.lib
-*.a
+/Services/App_Data/Elmah.sdf
+/Services/Properties/PublishProfiles/*.pubxml
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Backup & report files from converting an old project file to a newer
+# Visual Studio version
+_UpgradeReport_Files/
+UpgradeLog*.XML
+UpgradeLog*.htm
