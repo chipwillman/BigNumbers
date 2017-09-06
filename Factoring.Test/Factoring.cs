@@ -1,4 +1,8 @@
 ﻿
+using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
+using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
+
 namespace Factoring.Test
 {
     using System;
@@ -797,6 +801,140 @@ rML3TxQSwdA=";
         {
             var first = BigInteger.Parse("831967292613905141715382511023497619") * 2;
             var second = BigInteger.Parse("831967292613905141715382511023497619") * 7;
+        }
+
+        [TestMethod]
+        public void TestSumarianMethod()
+        {
+            var rsa59Number = BigInteger.Parse(RSA59);
+
+            //  357440504101388365610785389017
+            //  200429218120815554269743635437
+            var factor1 = BigInteger.Parse("357440504101388365610785389017");
+            var factor2 = BigInteger.Parse("200429218120815554269743635437");
+
+            var productMap = MultiplicationMap(rsa59Number);
+            Assert.IsNotNull(productMap);
+            var factor1MultMap = MultiplicationMap(factor1);
+            var factor2MultMap = MultiplicationMap(factor2);
+            var comparison = factor1MultMap.PadLeft(productMap.Length) + Environment.NewLine +
+                             factor2MultMap.PadLeft(productMap.Length) + Environment.NewLine +
+                             productMap;
+            Assert.IsNotNull(comparison);
+            var sb = new StringBuilder();
+            var number = rsa59Number;
+            foreach (var c in productMap)
+            {
+                if (c == '1')
+                {
+                    sb.AppendLine(number.ToString().PadLeft(RSA59.Length) + " - 1");
+                }
+                else
+                {
+                    sb.AppendLine(number.ToString().PadLeft(RSA59.Length) + " - 0");
+                }
+                number /= 2;
+            } //53897089881444119075949 
+            var divMap = sb.ToString();
+            Assert.IsNotNull(divMap);
+        }
+
+        [TestMethod]
+        public void TestSumarianMethodOnSmall()
+        {
+            var factor1 = BigInteger.Parse("3253");
+            var factor2 = BigInteger.Parse("3061");
+            //var factor2 = BigInteger.Parse("2473");
+            var product = factor1 * factor2;
+
+            var factor1MultMap = MultiplicationMap(factor1);
+            var factor2MultMap = MultiplicationMap(factor2);
+            var productMap = MultiplicationMap(product);
+            var comparison = new StringBuilder();
+            //comparison.AppendLine(factor1MultMap.PadLeft(productMap.Length));
+            for (int i = 0; i < factor1MultMap.Length - 1; i++)
+            {
+                comparison.Append(factor1MultMap[i].ToString().PadLeft(2));
+            }
+            comparison.AppendLine(factor1MultMap[factor1MultMap.Length - 1].ToString());
+            for (int i = 0; i < factor2MultMap.Length - 1; i++)
+            {
+                comparison.Append(factor2MultMap[i].ToString().PadLeft(2));
+                //comparison.Append(factor2MultMap.PadLeft(productMap.Length - i));
+                //comparison.AppendLine("".PadRight(i, '0'));
+            }
+            comparison.AppendLine(factor2MultMap[factor2MultMap.Length - 1].ToString());
+            comparison.AppendLine(productMap);
+            var stringResult = comparison.ToString();
+            Assert.IsNotNull(stringResult);
+            var sb = new StringBuilder();
+            var number = product;
+            foreach (var c in productMap)
+            {
+                if (c == '1')
+                {
+                    sb.AppendLine(number.ToString().PadLeft(RSA59.Length) + " - 1");
+                }
+                else
+                {
+                    sb.AppendLine(number.ToString().PadLeft(RSA59.Length) + " - 0");
+                }
+                number /= 2;
+            } //53897089881444119075949 
+            var divMap = sb.ToString();
+            Assert.IsNotNull(divMap);
+        }
+
+
+
+        private static string MultiplicationMap(BigInteger thevalue)
+        {
+            var number = thevalue;
+            var sqrt = number.Sqrt();
+            var sb = new StringBuilder();
+            var oddSum = new BigInteger(0);
+            var evenSum = new BigInteger(0);
+            var startGuess = new BigInteger(0);
+            var lowOddSum = new BigInteger(0);
+            var lowEvenSum = new BigInteger(0);
+            var addValue = true;
+            var startCountLow = false;
+            var startValue = new BigInteger(0);
+            while (number > 1)
+            {
+                if (!startCountLow && number < sqrt)
+                {
+                    startCountLow = true;
+                    startValue = number;
+                }
+
+                if (number.IsEven)
+                {
+                    sb.Append("0");
+                    evenSum += number;
+                    if (startCountLow) //lowOddSum > 0)
+                    {
+                        lowEvenSum += number;
+                    }
+                }
+                else
+                {
+                    if (startCountLow)
+                    {
+                        if (addValue) startGuess += number;
+                        else startGuess -= number;
+                        addValue = !addValue;
+                        lowOddSum += number;
+                    }
+                    sb.Append("1");
+                    oddSum += number;
+                }
+                number /= 2;
+            }
+            sb.Append(number == 2 ? "01" : "1");
+            var result = sb.ToString();
+            Assert.IsTrue(oddSum > 0);
+            return result;
         }
     }
 }
